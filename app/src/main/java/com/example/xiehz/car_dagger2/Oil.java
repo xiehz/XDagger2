@@ -6,7 +6,7 @@ public class Oil {
 
     int capacity;
     float value;
-    @Inject
+//    @Inject
     public Oil(){
         this.capacity = 6;
         this.value = 0;

@@ -3,10 +3,11 @@ package com.example.xiehz.car_dagger2;
 import javax.inject.Inject;
 
 public class Car {
-    @Inject
+//    @Inject
     Oil oil;
-    public Car(){
-
+    @Inject
+    public Car(Oil oil){
+        this.oil = oil;
     }
 
     public void add(){

@@ -6,7 +6,7 @@ import dagger.Provides;
 @Module(includes = OilModule.class)
 public class AppModule {
     @Provides
-    Car providerCar(Oil oil){
-        return new Car(oil);
+    Car providerCar(){
+        return new Car();
     }
 }

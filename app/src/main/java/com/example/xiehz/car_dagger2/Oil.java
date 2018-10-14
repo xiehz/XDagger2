@@ -6,7 +6,7 @@ public class Oil {
 
     int capacity;
     float value;
-//    @Inject
+//    @Inject  module方式实例化
     public Oil(){
         this.capacity = 6;
         this.value = 0;

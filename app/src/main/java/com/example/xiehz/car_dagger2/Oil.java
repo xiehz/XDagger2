@@ -1,7 +1,6 @@
 package com.example.xiehz.car_dagger2;
 
 import javax.inject.Inject;
-
 public class Oil {
 
     int capacity;

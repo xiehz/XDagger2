@@ -24,8 +24,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        OilModule oilModule = new OilModule();
 
-        DaggerAppComponent.create().inject(this);
+        AppComponent appComponent = DaggerAppComponent.create();
+        appComponent.inject(this);
+        GasStationComponent gasStationComponent = appComponent.gasstationBuilder().gasStationBuilder(oilModule).build();
+        gasStationComponent.inject(car);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

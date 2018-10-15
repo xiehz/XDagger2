@@ -4,8 +4,8 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 
-@Component(modules = {AppModule.class})
+@Component(dependencies = {GasStationComponent.class},modules = {AppModule.class})
 public interface AppComponent {
     void inject(MainActivity mainActivity);
-    GasStationComponent.GasStationBuilder gasstationBuilder();
+//    GasStationComponent.GasStationBuilder gasstationBuilder();
 }

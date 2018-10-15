@@ -1,12 +1,14 @@
 package com.example.xiehz.car_dagger2;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
 
-@Module(subcomponents = {GasStationComponent.class})
+@Module
 public class AppModule {
+    @Named("玛莎拉蒂")
     @Provides
     Car providerCar(){
         return new Car();

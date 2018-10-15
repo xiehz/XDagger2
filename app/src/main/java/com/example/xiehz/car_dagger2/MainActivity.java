@@ -12,11 +12,11 @@ import android.view.MenuItem;
 import java.text.DecimalFormat;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Inject
-    Car car;
+    private Car car;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +24,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        OilModule oilModule = new OilModule();
-
-        AppComponent appComponent = DaggerAppComponent.create();
+        GasStationComponent gasStationComponent = DaggerGasStationComponent.builder().build();
+        AppComponent appComponent = DaggerAppComponent.builder().gasStationComponent(gasStationComponent).build();
         appComponent.inject(this);
-        GasStationComponent gasStationComponent = appComponent.gasstationBuilder().gasStationBuilder(oilModule).build();
         gasStationComponent.inject(car);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -48,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    @Inject
+    public void setCar(@Named("玛莎拉蒂") Car car){
+        this.car = car;
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -8,7 +8,8 @@ import dagger.Provides;
 
 @Module
 public class AppModule {
-    @Named("玛莎拉蒂")
+//    @Named("玛莎拉蒂")
+    @CarQualifier
     @Provides
     Car providerCar(){
         return new Car();

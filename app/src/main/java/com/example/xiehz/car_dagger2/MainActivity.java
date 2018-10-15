@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     @Inject
-    public void setCar(@Named("玛莎拉蒂") Car car){
+    public void setCar(@CarQualifier/*@Named("玛莎拉蒂")*/ Car car){
         this.car = car;
     }
 

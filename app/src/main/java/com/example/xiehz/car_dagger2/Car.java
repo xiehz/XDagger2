@@ -3,6 +3,7 @@ package com.example.xiehz.car_dagger2;
 import javax.inject.Inject;
 
 public class Car {
+    @Oil92Qualifier
     @Inject
     Oil oil;
 //    @Inject  带参数构造函数

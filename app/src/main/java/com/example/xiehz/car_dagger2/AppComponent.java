@@ -1,11 +1,10 @@
 package com.example.xiehz.car_dagger2;
 
-import javax.inject.Singleton;
-
 import dagger.Component;
 
-@Component(dependencies = {GasStationComponent.class},modules = {AppModule.class})
+@CarScope
+@Component(modules = {AppModule.class},dependencies = {GasStationComponent.class})
 public interface AppComponent {
     void inject(MainActivity mainActivity);
-//    GasStationComponent.GasStationBuilder gasstationBuilder();
+    void inject(Main2Activity mainActivity);
 }

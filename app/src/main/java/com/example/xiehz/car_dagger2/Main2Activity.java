@@ -15,17 +15,6 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        GasStationComponent gasStationComponent_0 = DaggerGasStationComponent.builder().build();
-        Oil oil92 = gasStationComponent_0.get92();
 
-        GasStationComponent gasStationComponent = DaggerGasStationComponent.builder().build();
-        Oil oil = gasStationComponent.get92();
-
-
-        AppComponent appComponent = DaggerAppComponent.builder()
-                .gasStationComponent(gasStationComponent_0).build();
-        appComponent.inject(this);
-
-        gasStationComponent_0.inject(car);
     }
 }

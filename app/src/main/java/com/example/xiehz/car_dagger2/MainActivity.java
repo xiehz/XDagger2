@@ -26,9 +26,7 @@ public class MainActivity extends AppCompatActivity {
     @CarQualifier
     @Inject
     Car car0;
-    @CarQualifier
-    @Inject
-    Car car1;
+
     @BindView(R.id.hello)
     Button hello;
 
@@ -41,23 +39,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        GasStationComponent gasStationComponent_0 = DaggerGasStationComponent.builder().build();
-        Oil oil92 = gasStationComponent_0.get92();
+        DaggerAppComponent.create().gasStationComponentBuilder().OilModuleBuilder(new OilModule()).build();
+        DaggerAppComponent.create().inject(this);
 
-        GasStationComponent gasStationComponent = DaggerGasStationComponent.builder().build();
-        Oil oil = gasStationComponent.get92();
-
-
-        AppComponent appComponent = DaggerAppComponent.builder()
-                .gasStationComponent(gasStationComponent_0).build();
-        appComponent.inject(this);
-
-        gasStationComponent_0.inject(car0);
-        gasStationComponent_0.inject(car1);
-
-        if (car0 == car1) {
-            Toast.makeText(getApplicationContext(), "相同", Toast.LENGTH_LONG).show();
-        }
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
